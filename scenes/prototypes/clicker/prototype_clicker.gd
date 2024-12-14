@@ -1,6 +1,7 @@
 class_name PrototypeClicker
 extends Control
-## A clicker prototype creating stardust
+## A clicker prototype creating stardust.
+
 
 ## Reference to the label displaying the current amount of stardust created.
 @export var label : Label
@@ -10,15 +11,9 @@ extends Control
 var stardust : int = 0
 
 
-## Create 1 stardust.
-func create_stardust() -> void :
-	stardust += 1
+## Initialize the label.
+func _ready() -> void:
 	update_label_text()
-
-
-## Update the text of the label to reflect a change in stardust amount.
-func update_label_text() -> void :
-	label.text = "Stardust : %s" %stardust
 
 
 ## Triggerred when the create stardust button is pressed.
@@ -26,6 +21,12 @@ func _on_button_pressed() -> void:
 	create_stardust()
 
 
+## Update the text of the label to reflect a change in stardust amount.
+func update_label_text() -> void :
+	label.text = "Stardust : %s" %stardust
 
-func _ready() -> void:
+
+## Create 1 stardust.
+func create_stardust() -> void :
+	stardust += 1
 	update_label_text()
