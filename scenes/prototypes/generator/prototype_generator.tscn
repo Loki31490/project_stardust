@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://cciem6ucs8se"]
 
-[ext_resource type="Script" path="res://scenes/prototypes/generator/generator_prototype.gd" id="1_2ywlo"]
+[ext_resource type="Script" path="res://scenes/prototypes/generator/prototype_generator.gd" id="1_2ywlo"]
 
-[node name="GeneratorPrototype" type="Control" node_paths=PackedStringArray("label", "button", "timer")]
+[node name="PrototypeGenerator" type="Control" node_paths=PackedStringArray("label", "button", "timer")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,6 +13,7 @@ script = ExtResource("1_2ywlo")
 label = NodePath("Label")
 button = NodePath("Button")
 timer = NodePath("Timer")
+view = 1
 
 [node name="Label" type="Label" parent="."]
 custom_minimum_size = Vector2(0, 80)
