@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvu1jwvtey56n"]
+[gd_scene load_steps=6 format=3 uid="uid://bvu1jwvtey56n"]
 
 [ext_resource type="PackedScene" uid="uid://cciem6ucs8se" path="res://scenes/prototypes/generator/prototype_generator.tscn" id="1_0al7f"]
 [ext_resource type="Script" path="res://scenes/user_interface/user_interface.gd" id="1_4024n"]
 [ext_resource type="Script" path="res://scenes/user_interface/stardust_label.gd" id="2_nxm4d"]
 [ext_resource type="PackedScene" uid="uid://ddn6eemcjtw10" path="res://scenes/prototypes/clicker/prototype_clicker.tscn" id="3_nt32e"]
+[ext_resource type="PackedScene" uid="uid://ccqs3bqktotbd" path="res://scenes/prototypes/upgrades/prototype_upgrades.tscn" id="5_tsdo2"]
 
 [node name="UserInterface" type="Control"]
 layout_mode = 3
@@ -60,6 +61,11 @@ layout_mode = 2
 text = "Prototype Clicker"
 underline = 1
 
+[node name="PrototypeUpgradesLink" type="LinkButton" parent="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Prototype Upgrades"
+underline = 1
+
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/LeftPanel/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 16
@@ -112,5 +118,11 @@ layout_mode = 1
 view = 1
 user_interface = NodePath("../../..")
 
+[node name="PrototypeUpgrades" parent="HBoxContainer/MainView" node_paths=PackedStringArray("user_interface") instance=ExtResource("5_tsdo2")]
+layout_mode = 1
+user_interface = NodePath("../../..")
+view = 2
+
 [connection signal="pressed" from="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer/PrototypeGeneratorLink" to="." method="_on_prototype_generator_link_pressed"]
 [connection signal="pressed" from="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer/PrototypeClickerLink" to="." method="_on_prototype_clicker_link_pressed"]
+[connection signal="pressed" from="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer/PrototypeUpgradesLink" to="." method="_on_prototype_upgrades_link_pressed"]

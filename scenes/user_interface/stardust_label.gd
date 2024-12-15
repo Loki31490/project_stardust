@@ -1,11 +1,15 @@
-class_name LabeStardust
+class_name LabelStardust
 extends Label
 ## Displays the current amount of stardust available.
 
 
-func _process(_delta: float) -> void:
+## Connecting signals.
+func _ready() -> void:
 	update_text()
+	HandlerStardust.ref.stardust_created.connect(update_text)
+	HandlerStardust.ref.stardust_consumed.connect(update_text)
 
 
-func update_text() -> void:
-	text = "Stardust : %s" %Game.ref.data.stardust
+## Updates the text to reflec the current amount of stardust created.
+func update_text(_quantity : int = -1) -> void:
+	text = "Stardust : %s" %HandlerStardust.ref.stardust()
