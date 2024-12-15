@@ -11,7 +11,7 @@ extends Control
 
 
 ## Upgrade to display.
-var upgrade : Up01ClickerUpgrade
+var upgrade : Upgrade
 
 
 func _ready() -> void:

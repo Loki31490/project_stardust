@@ -1,25 +1,14 @@
 class_name Up01ClickerUpgrade
-extends Node
+extends Upgrade
 ## Upgrade 01 - Increase stardust created by the clicker.
 
-## Emitted when the upgrade has leveled up.
-signal leveled_up
-
-
-## Level of the upgrade.
-var level : int = 0
-## Title of the upgrade.
-var title : String = "Clicker Upgrade"
-## Base cost of the upgrade.
-var base_cost : int = 5
-## Current codt of the upgrade.
-var cost : int
 
 ## Load data.
 func _init() -> void:
 	level = Game.ref.data.up_01_level
+	title = "Clicker Upgrade"
+	base_cost = 5
 	calculate_cost()
-
 
 
 ## Returns the description containing effects and costs.
@@ -44,7 +33,7 @@ func can_afford() -> bool:
 	return false
 
 
-## Consueds stardust to level up.
+## Consumes stardust to level up.
 func level_up() -> void:
 	var error : Error = HandlerStardust.ref.consume_stardust(cost)
 	
