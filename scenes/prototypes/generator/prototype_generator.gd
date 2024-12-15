@@ -23,7 +23,7 @@ func begin_generating_stardust() -> void :
 
 ## Create 1 stardust.
 func create_stardust() -> void :
-	HandlerStardust.ref.create_stardust(1)
+		HandlerStardust.ref.increase_generator()
 
 
 ## Triggerred when the "generate stardust" button is pressed.

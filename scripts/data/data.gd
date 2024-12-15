@@ -9,3 +9,5 @@ extends Resource
 
 ## Upgrade 01 Clicker Update Level.
 @export var up_01_level : int = 0
+## Upgrade 02 Generator Update Level.
+@export var up_02_level : int = 0

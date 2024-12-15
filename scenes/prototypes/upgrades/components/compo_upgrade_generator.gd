@@ -1,4 +1,4 @@
-class_name CompoUpgradeGenerator
+class_name CompoUpgrade
 extends Control
 ## Component displaying an upgrade.
 
@@ -15,7 +15,7 @@ var upgrade : Upgrade
 
 
 func _ready() -> void:
-	upgrade = Up01ClickerUpgrade.new()
+	upgrade = Up02GeneratorUpgrade.new()
 	
 	update_label_title()
 	update_label_description()
