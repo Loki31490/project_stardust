@@ -15,11 +15,17 @@ func _singleton_check() -> void:
 	queue_free()
 
 
-
 ### Contains the data to save and load.
 var data : Data
+
 
 ## Singleton check & Data initialization.
 func _enter_tree() -> void:
 	_singleton_check()
 	data = Data.new()
+	SaveSystem.load_data()
+
+
+## Triggered when the save timer completes a loop. Save the game.
+func _on_save_timer_timeout() -> void:
+	SaveSystem.save_data()
