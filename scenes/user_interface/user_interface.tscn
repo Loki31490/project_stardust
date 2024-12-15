@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://bvu1jwvtey56n"]
+[gd_scene load_steps=8 format=3 uid="uid://bvu1jwvtey56n"]
 
 [ext_resource type="PackedScene" uid="uid://cciem6ucs8se" path="res://scenes/prototypes/generator/prototype_generator.tscn" id="1_0al7f"]
 [ext_resource type="Script" path="res://scenes/user_interface/user_interface.gd" id="1_4024n"]
 [ext_resource type="Script" path="res://scenes/user_interface/stardust_label.gd" id="2_nxm4d"]
+[ext_resource type="Script" path="res://scenes/user_interface/consciousness_core_label.gd" id="3_jsm3k"]
 [ext_resource type="PackedScene" uid="uid://ddn6eemcjtw10" path="res://scenes/prototypes/clicker/prototype_clicker.tscn" id="3_nt32e"]
 [ext_resource type="PackedScene" uid="uid://ccqs3bqktotbd" path="res://scenes/prototypes/upgrades/prototype_upgrades.tscn" id="5_tsdo2"]
+[ext_resource type="PackedScene" uid="uid://ct3lf3pgjxllg" path="res://scenes/views/consciousness_core/consciousness_core_view.tscn" id="6_in5td"]
 
 [node name="UserInterface" type="Control"]
 layout_mode = 3
@@ -66,6 +68,11 @@ layout_mode = 2
 text = "Prototype Upgrades"
 underline = 1
 
+[node name="ConsciousnessCoreLink" type="LinkButton" parent="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Consciousness Core"
+underline = 1
+
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/LeftPanel/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 16
@@ -95,6 +102,11 @@ layout_mode = 2
 text = "Stardust : <value>"
 script = ExtResource("2_nxm4d")
 
+[node name="ConsciousnessCoreLabel" type="Label" parent="HBoxContainer/LeftPanel/VBoxContainer/Resources/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Consciousness Core : <value>"
+script = ExtResource("3_jsm3k")
+
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 16
@@ -119,10 +131,17 @@ user_interface = NodePath("../../..")
 view = 1
 
 [node name="PrototypeUpgrades" parent="HBoxContainer/MainView" node_paths=PackedStringArray("user_interface") instance=ExtResource("5_tsdo2")]
+visible = false
 layout_mode = 1
 user_interface = NodePath("../../..")
 view = 2
 
+[node name="ConsciousnessCoreView" parent="HBoxContainer/MainView" node_paths=PackedStringArray("user_interface") instance=ExtResource("6_in5td")]
+visible = false
+layout_mode = 1
+user_interface = NodePath("../../..")
+
 [connection signal="pressed" from="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer/PrototypeGeneratorLink" to="." method="_on_prototype_generator_link_pressed"]
 [connection signal="pressed" from="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer/PrototypeClickerLink" to="." method="_on_prototype_clicker_link_pressed"]
 [connection signal="pressed" from="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer/PrototypeUpgradesLink" to="." method="_on_prototype_upgrades_link_pressed"]
+[connection signal="pressed" from="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer/ConsciousnessCoreLink" to="." method="_on_consciousness_core_link_pressed"]
