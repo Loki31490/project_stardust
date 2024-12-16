@@ -1,6 +1,6 @@
 class_name HandlerConsciousnessCore
 extends Node
-## Manages consciousness_core ans related signals.
+## Manages consciousness core ans related signals.
 
 
 ## Singleton reference.
@@ -16,7 +16,7 @@ func _enter_tree() -> void:
 	queue_free()
 
 
-## Emitted when consciousness_core are created.
+## Emitted when consciousness core are created.
 signal consciousness_core_created(quantity : int)
 ## Emitted when consciousness_core are consumed
 signal consciousness_core_consumed(quantity : int)
@@ -45,7 +45,7 @@ func consume_consciousness_core(quantity : int) -> Error:
 	return Error.OK
 
 
-## Triggered by the clicker; creates consciousness_core.
+## Triggered by the clicker; creates consciousness core.
 func trigger_clicker() -> void:
 	var quantity : int = 1
 	quantity += Game.ref.data.up_01_level
